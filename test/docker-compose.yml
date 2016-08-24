@@ -10,7 +10,7 @@ services:
       - POSTGRES_PASSWORD=secret
 
   flyway-migrator:
-    image: gsengun/flyway-postgres:1.0
+    image: gsengun/flyway-postgres:1.1
     volumes:
       - ./sql:/flyway/sql
     depends_on:
