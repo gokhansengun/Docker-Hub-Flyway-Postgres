@@ -44,13 +44,13 @@ Below steps examplify the usage of the image in the Docker CLI.
 Open a terminal and navigate to the `sql` folder containing your migration sql files. Run the command below.
 
 ```
-docker run -v `pwd`/sql:/flyway/sql gsengun/flyway-postgres:1.0 <DB_IP_OR_NAME> <DB_PORT> <DB_USERNAME> <DB_PASSWORD> <DB_NAME>
+docker run --rm -v `pwd`/sql:/flyway/sql gsengun/flyway-postgres:1.0 <DB_IP_OR_NAME> <DB_PORT> <DB_USERNAME> <DB_PASSWORD> <DB_NAME>
 ```
 
 example command:
 
 ```
-docker run -v `pwd`/sql:/flyway/sql gsengun/flyway-postgres:1.0 192.168.1.35 5432 postgres secret postgres
+docker run --rm -v `pwd`/sql:/flyway/sql gsengun/flyway-postgres:1.0 192.168.1.35 5432 postgres secret postgres
 ```
 
 
