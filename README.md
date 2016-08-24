@@ -4,7 +4,7 @@ This image provides a Flyway image with Postgres' psql tool and a ready script i
 
 # Getting Started
 
-There are two scenarios in which this image could be used. Docker Compose and Docker CLI. You may find example setup in `https://github.com/gokhansengun/Docker-Hub-Flyway-Postgres/test`.
+There are two scenarios in which this image could be used. Docker Compose and Docker CLI. You may find example setup in `https://github.com/gokhansengun/Docker-Hub-Flyway-Postgres/tree/master/test`.
 
 ## Docker Compose
 
