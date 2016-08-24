@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+
+  postgres-db:
+    image: postgres:9.3
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=secret
+
+  flyway-migrator:
+    image: gsengun/flyway-postgres:1.0
+    volumes:
+      - ./sql:/flyway/sql
+    depends_on:
+      - postgres-db
+    command: postgres-db 5432 postgres secret postgres
