@@ -12,7 +12,7 @@ Below steps examplify the usage of the image in the Docker Compose version 2 (Do
 
 Create a `docker-compose.yml` file like below. There are two services, one service is the Postgres DB itself. The other service is the Flyway migrator. You should have your migration sql files under the `sql` directory which is placed under the same directory as `docker-compose.yml` file.
 
-Below, the command for `flyway-migrator` is in the format of `<DB_IP_OR_NAME> <DB_PORT> <DB_USERNAME> <DB_PASSWORD> <DB_NAME>`
+Below, the command for `flyway-migrator` is in the format of `<DB_IP_OR_NAME> <DB_PORT> <DB_USERNAME> <DB_PASSWORD> <DB_NAME> <SCHEMA_NAME>`
 
 ```docker
 version: '2'
@@ -32,7 +32,7 @@ services:
       - ./sql:/flyway/sql
     depends_on:
       - postgres-db
-    command: postgres-db 5432 postgres secret postgres
+    command: postgres-db 5432 postgres secret postgres public
 ```
 
 Open a terminal and run the service using `docker-compose up flyway-migrator`
@@ -44,13 +44,13 @@ Below steps examplify the usage of the image in the Docker CLI.
 Open a terminal and navigate to the `sql` folder containing your migration sql files. Run the command below.
 
 ```
-docker run --rm -v `pwd`/sql:/flyway/sql gsengun/flyway-postgres:1.1 <DB_IP_OR_NAME> <DB_PORT> <DB_USERNAME> <DB_PASSWORD> <DB_NAME>
+docker run --rm -v `pwd`/sql:/flyway/sql gsengun/flyway-postgres:1.1 <DB_IP_OR_NAME> <DB_PORT> <DB_USERNAME> <DB_PASSWORD> <DB_NAME> <SCHEMA_NAME>
 ```
 
 example command:
 
 ```
-docker run --rm -v `pwd`/sql:/flyway/sql gsengun/flyway-postgres:1.1 192.168.1.35 5432 postgres secret postgres
+docker run --rm -v `pwd`/sql:/flyway/sql gsengun/flyway-postgres:1.1 192.168.1.35 5432 postgres secret postgres public
 ```
 
 
