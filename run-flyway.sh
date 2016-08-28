@@ -19,7 +19,7 @@ done
 
 # clean the database
 >&2 echo "Flyway is cleaning the database first"
-flyway -url=jdbc:postgresql://"$host":"$port"/"$database_name" -user="$username" -password="$password" clean
+flyway -url=jdbc:postgresql://"$host":"$port"/"$database_name" -schemas=public,dbo -user="$username" -password="$password" clean
 
 # migrate the database
 >&2 echo "Flyway is running pending migrations -if any- on the database"
