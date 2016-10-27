@@ -27,7 +27,7 @@ services:
       - POSTGRES_PASSWORD=secret
 
   flyway-migrator:
-    image: gsengun/flyway-postgres:1.1
+    image: gsengun/flyway-postgres
     volumes:
       - ./sql:/flyway/sql
     depends_on:
@@ -44,13 +44,13 @@ Below steps examplify the usage of the image in the Docker CLI.
 Open a terminal and navigate to the `sql` folder containing your migration sql files. Run the command below.
 
 ```
-docker run --rm -v `pwd`/sql:/flyway/sql gsengun/flyway-postgres:1.1 <DB_IP_OR_NAME> <DB_PORT> <DB_USERNAME> <DB_PASSWORD> <DB_NAME> <SCHEMA_NAME>
+docker run --rm -v `pwd`/sql:/flyway/sql gsengun/flyway-postgres <DB_IP_OR_NAME> <DB_PORT> <DB_USERNAME> <DB_PASSWORD> <DB_NAME> <SCHEMA_NAME>
 ```
 
 example command:
 
 ```
-docker run --rm -v `pwd`/sql:/flyway/sql gsengun/flyway-postgres:1.1 192.168.1.35 5432 postgres secret postgres public
+docker run --rm -v `pwd`/sql:/flyway/sql gsengun/flyway-postgres 192.168.1.35 5432 postgres secret postgres public
 ```
 
 
